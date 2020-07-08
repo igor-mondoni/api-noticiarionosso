@@ -19,3 +19,21 @@ const Route = use('Route')
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
+
+Route.get('/posts', 'PostController.index')
+Route.post('/posts', 'PostController.store')
+Route.get('/posts/:id', 'PostController.show')
+
+// Esta rota verifica se o usuario esta cadastrado no sistema
+Route.post('/auths','AuthController.store')
+// Esta rota obtem os dados do usuário logado
+Route.get('/auths/profile','AuthController.profile').middleware('auth')
+// Esta rota registra um novo usuario
+Route.post('/users','UserController.store')
+Route.get('/users','UserController.index')
+Route.post('/users/profile/:id','UserController.update')
+
+
+//rostas para contatos
+Route.post('/contact','ContactController.store')
+Route.get('/contact','ContactController.index')
