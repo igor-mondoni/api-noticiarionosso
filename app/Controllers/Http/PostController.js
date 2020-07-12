@@ -9,7 +9,7 @@ class PostController {
     }
 
     async store ({ request }){
-        const data = request.only(['title','subtitle','post'])
+        const data = request.only(['title','subtitle','post','category'])
     
         const post = await Post.create(data)
     

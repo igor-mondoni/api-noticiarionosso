@@ -32,6 +32,7 @@ Route.get('/auths/profile','AuthController.profile').middleware('auth')
 Route.post('/users','UserController.store')
 Route.get('/users','UserController.index')
 Route.post('/users/profile/:id','UserController.update')
+Route.get('/users/permission','UserController.getPermission')
 
 
 //rostas para contatos

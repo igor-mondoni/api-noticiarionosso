@@ -7,8 +7,15 @@ class UserController {
         return await User.all()
     }
 
+    async getPermission({ request }) {
+        const emails = request.only('email')
+        const user = await User.findByOrFail(emails)
+
+        return user.usertype
+    }
+
     async store ({ request }){
-        const data = request.only(['completename', 'email','password', 'username', 'doc_number', 'address1', 'address2', 'birth_date', 'usertype'])
+        const data = request.only(['completename', 'email','password', 'username', 'doc_number', 'address', 'address2', 'birth_date', 'usertype'])
     
         const user = await User.create(data)
     
